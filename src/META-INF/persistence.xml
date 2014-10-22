@@ -3,8 +3,8 @@
 
       <properties>
           <provider>org.hibernate.ejb.HibernatePersistence</provider>
-          <class>br.com.flaviosdelima.DB.Cliente</class>
-          <class>br.com.flaviosdelima.DB.Categoria</class>
+          <class>br.flaviosdelima.entidade.ContasPagar</class>
+          <class>br.flaviosdelima.entidade.Fornecedor</class>
          <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
          <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
          <property name="hibernate.connection.username" value="flavios"/>
@@ -14,7 +14,7 @@
          <property name="hibernate.format_sql" value="true" />
          <property name="hibernate.use_sql_comments" value="false" />
          <property name="hibernate.hbm2ddl.auto" value="false" />
-         <property name="hibernate.show_sql" value="false" />
+         <property name="hibernate.show_sql" value="true" />
          <property name="hibernate.jdbc.batch_size" value="50" />
       </properties>
    </persistence-unit>

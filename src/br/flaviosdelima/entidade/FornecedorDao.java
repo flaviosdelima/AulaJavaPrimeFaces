@@ -12,11 +12,13 @@ public class FornecedorDao extends DAO{
 	
 	public void Salvar(Fornecedor fornecedor)
 	{
+		
 		EntityManager em = getEntityManager();
 		try
 		{
-			em.getTransaction();
+			em.getTransaction().begin();
 			em.persist(fornecedor);
+			//em.merge(fornecedor);
 			em.getTransaction().commit();
 		}
 		catch(Exception ex)

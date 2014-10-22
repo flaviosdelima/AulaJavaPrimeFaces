@@ -57,5 +57,14 @@ public class Fornecedor {
 	@Column(name="obs")
 	private String obs;	
 	
-	
+	@Column(name="endereco")
+	private String endereco;
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}		
 }

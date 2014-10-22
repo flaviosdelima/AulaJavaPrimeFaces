@@ -10,15 +10,16 @@ import org.hibernate.ejb.EntityManagerImpl;
 public class DAO {
 	
 	private EntityManagerFactory emf;
-	
-	public EntityManager getEntityManager()
-	{
+
+	public EntityManager getEntityManager() {
 		return emf.createEntityManager();
 	}
 
-	public DAO()
-	{
+	public DAO() {
 		emf = Persistence.createEntityManagerFactory("sistema");
+		
+		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("sistema"); 
+		//EntityManager em = emf.createEntityManager(); 
 	}
 	public Session getSession()
 	{
@@ -26,10 +27,11 @@ public class DAO {
 		if(getEntityManager().getDelegate() instanceof EntityManagerImpl)
 		{
 			EntityManagerImpl entityManagerImpl = (EntityManagerImpl)getEntityManager();
-			return entityManagerImpl.getSession();
+			session= entityManagerImpl.getSession();
 		}else
 		{
-			return (Session)getEntityManager().getDelegate();
+			session =(Session)getEntityManager().getDelegate();
 		}
+		return session;
 	}
 }
