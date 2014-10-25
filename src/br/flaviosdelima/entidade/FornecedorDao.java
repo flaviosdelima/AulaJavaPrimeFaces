@@ -39,10 +39,10 @@ public class FornecedorDao extends DAO{
 		List<Fornecedor>  lista = null;
 		try 
 		{
-			Query q = em.createNativeQuery("Select objects(f) from Fornecedor as f");
+			Query q = em.createQuery("select object(f) from Fornecedor as f");
 			lista= q.getResultList();
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("Erro"+e.toString());
 		}
 		return lista;
 	}	
@@ -51,7 +51,7 @@ public class FornecedorDao extends DAO{
 		EntityManager em = getEntityManager();
 		try
 		{
-			em.getTransaction();
+			em.getTransaction().begin();
 			Fornecedor f = em.find(Fornecedor.class, fornecedor.getId());
 			em.remove(f); 
 			em.getTransaction().commit();

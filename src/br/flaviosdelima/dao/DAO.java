@@ -8,7 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.ejb.EntityManagerImpl;
 
 public class DAO {
-	
 	private EntityManagerFactory emf;
 
 	public EntityManager getEntityManager() {
@@ -17,21 +16,17 @@ public class DAO {
 
 	public DAO() {
 		emf = Persistence.createEntityManagerFactory("sistema");
-		
-		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("sistema"); 
-		//EntityManager em = emf.createEntityManager(); 
 	}
-	public Session getSession()
-	{
+
+	public Session getSession() {
 		Session session = null;
-		if(getEntityManager().getDelegate() instanceof EntityManagerImpl)
-		{
-			EntityManagerImpl entityManagerImpl = (EntityManagerImpl)getEntityManager();
-			session= entityManagerImpl.getSession();
-		}else
-		{
-			session =(Session)getEntityManager().getDelegate();
+
+		if (getEntityManager().getDelegate() instanceof EntityManagerImpl) {
+			EntityManagerImpl entityManagerImpl = (EntityManagerImpl) getEntityManager()
+					.getDelegate();
+			return entityManagerImpl.getSession();
+		} else {
+			return (Session) getEntityManager().getDelegate();
 		}
-		return session;
 	}
 }

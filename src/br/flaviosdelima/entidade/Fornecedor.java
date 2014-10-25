@@ -16,6 +16,18 @@ public class Fornecedor {
 	@Column(name="numg")
 	private int id;
 	
+	@Column(name="nome")
+	private String nome;
+	
+	@Column(name="telefone")
+	private String telefone;
+	
+	@Column(name="obs")
+	private String obs;	
+	
+	@Column(name="endereco")
+	private String endereco;
+
 	public int getId() {
 		return id;
 	}
@@ -47,19 +59,7 @@ public class Fornecedor {
 	public void setObs(String obs) {
 		this.obs = obs;
 	}
-
-	@Column(name="nome")
-	private String nome;
 	
-	@Column(name="telefone")
-	private String telefone;
-	
-	@Column(name="obs")
-	private String obs;	
-	
-	@Column(name="endereco")
-	private String endereco;
-
 	public String getEndereco() {
 		return endereco;
 	}
